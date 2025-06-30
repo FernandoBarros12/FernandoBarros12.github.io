@@ -1,0 +1,42 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+interface Experience {
+  date: string
+  title: string
+  company?: string
+  description: string
+  link?: string
+}
+
+export const EXPERIENCE: Experience[] = [
+  {
+    date: "February 2022",
+    title: "Application UI code in Tailwind CSS",
+    company: "Get access to over...",
+    description: "Get access to over...",
+    link: "#",
+  },
+  {
+    date: "February 2022",
+    title: "Application UI code in Tailwind CSS",
+    company: "Get access to over...",
+    description: "Get access to over...",
+    link: "#",
+  },
+  {
+    date: "February 2022",
+    title: "Application UI code in Tailwind CSS",
+    company: "Get access to over...",
+    description: "Get access to over...",
+    link: "#",
+  },
+];
+---
+<ol>
+  {EXPERIENCE.map(experience => (
+    <li>
+      <ExperienceItem {...experience} />
+    </li>
+  ))}
+</ol>
