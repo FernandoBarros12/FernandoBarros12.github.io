@@ -1,63 +1,51 @@
 ---
-import AboutMe from '../components/AboutMe.astro';
-import Badge from '../components/Badge.astro';
-import Experience from '../components/Experience.astro';
-import GitHubIcon from '../components/icons/GitHub.astro';
-import LinkedInIcon from '../components/icons/LinkedIn.astro';
-import MailIcon from '../components/icons/Mail.astro';
-import SectionContainer from '../components/SectionContainer.astro';
-import SocialCell from '../components/SocialCell.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro"
 
+import AboutMe from "@/components/AboutMe.astro"
+import Briefcase from "@/components/icons/Briefcase.astro"
+import CodeIcon from "@/components/icons/Code.astro"
+import Experience from "@/components/Experience.astro"
+import ProfileCheck from "@/components/icons/ProfileCheck.astro"
+import Projects from "@/components/Projects.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import Hero from "@/components/Hero.astro"
+import TitleSection from "@/components/TitleSection.astro"
 ---
 
 <Layout
-	title="Fernando Barros Portfolio - Software Developer"
-	description="Fernando Barros - Software Developer, building scalable, production-ready web applications mainly using Python, TypeScript, and modern frameworks like FastAPI, Flask, and React.">
-	<main>
-		<SectionContainer class="pt-44 pb-20">
-			<img
-				class="rounded-full size-12 mb-4" 
-				src="src/assets/profile_photo.JPG"
-				alt="Fernando photo"
-			/>
-			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-3 pb-4">
-				Hi! I'm Fernando <a
-				href="https://www.linkedin.com/in/fernando-barros-mero-b135bb206/"
-				target="_blank"
-				rel="noopener"
-				class="flex justify-center items-center"
-				>
-					<Badge>Let's connect!</Badge>
-				</a>
-			</h1>
-			<h2 class="text-2xl text-wrap">
-				<span class="opacity-85">Software Developer with 5 years of experience</span>
-				<span class="text-yellow-300">building scalable, production-ready web applications</span>
-				<span class="opacity-85">mainly using Python, TypeScript, and modern frameworks like FastAPI, Flask, and React.</span>
-			</h2>
-			<nav class="flex gap-x-3 mt-5">
-				<SocialCell href="https://www.linkedin.com/in/fernando-barros-mero-b135bb206">
-					<LinkedInIcon class="size-6"/>
-					LinkedIn
-				</SocialCell>
-				<SocialCell href="https://github.com/FernandoBarros12">
-					<GitHubIcon class="size-6"/>
-					GitHub
-				</SocialCell>
-				<SocialCell  href="mailto:jbarros.1202@gmail.com">
-					<MailIcon class="size-6"/>
-					jbarros.1202@gmail.com
-				</SocialCell>
-				
-			</nav>
-		</SectionContainer>
+  title="Fernando Barros Portfolio - Software Developer"
+  description="Fernando Barros - Software Developer, building scalable, production-ready web applications mainly using Python, TypeScript, and modern frameworks like FastAPI, Flask, and React."
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+      </slot>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
+    <SectionContainer id="experience">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Work Experience
+      </TitleSection>
+      <Experience />
+    </SectionContainer>
 
-		<SectionContainer>
-			<Experience />
-		</SectionContainer>
-		<SectionContainer>
-			<AboutMe />
-		</SectionContainer>
-	</main>
+    <SectionContainer id="projects">
+      <TitleSection>
+        <CodeIcon class="size-7" />
+        Projects
+      </TitleSection>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="about-me">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        About Me
+      </TitleSection>
+      <AboutMe />
+    </SectionContainer>
+  </div>
+  </main>
 </Layout>

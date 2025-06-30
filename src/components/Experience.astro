@@ -1,42 +1,43 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-
-interface Experience {
-  date: string
-  title: string
-  company?: string
-  description: string
-  link?: string
-}
-
-export const EXPERIENCE: Experience[] = [
+const EXPERIENCE = [
   {
-    date: "February 2022",
-    title: "Application UI code in Tailwind CSS",
-    company: "Get access to over...",
-    description: "Get access to over...",
-    link: "#",
+    date: "Feb 2024 - Mar 2025",
+    title: "Backend Developer",
+    company: "SeatGeek (Consultant - via ioet)",
+    description:
+        "Led project of a new admin interface for ticket fees, coordinating weekly with stakeholders. Improved backend performance by ~54% with FastAPI and Python, fixing N+1 queries and parallelizing operations. Worked with PostgreSQL, Kafka, and Docker to ensure smooth migrations and reliable, scalable APIs.",
   },
   {
-    date: "February 2022",
-    title: "Application UI code in Tailwind CSS",
-    company: "Get access to over...",
-    description: "Get access to over...",
-    link: "#",
+    date: "Jan 2023 - Jan 2024",
+    title: "Software Developer",
+    company: "Warby Parker (Consultant - via ioet)",
+    description:
+        "Led the redesign of automated email delivery with Iterable and Narvar, ensuring timely customer communication. Contributed to backend refactoring with FastAPI and Tornado, adding new prescription checks for glasses and contacts. Improved test coverage, integrated third-party services, and collaborated with frontend engineers on React components.",
   },
   {
-    date: "February 2022",
-    title: "Application UI code in Tailwind CSS",
-    company: "Get access to over...",
-    description: "Get access to over...",
-    link: "#",
+    date: "Jun 2022 - Jan 2023",
+    title: "Software Developer Intern",
+    company: "ioet",
+    description:
+        "Developed internal tools for desk booking, food preferences, and carpooling, improving team coordination and daily logistics. Maintained and enhanced internal systems with various frameworks, and restructured a backend service using Hexagonal Architecture to boost modularity and maintainability.",
   },
-];
+  {
+    date: "May 2020 - Apr 2022",
+    title: "Jr Software Developer",
+    company: "ALUMTU",
+    description:
+        "Collaborated on ideation, planning, and MVP development for a travel app helping users plan road trips. Built RESTful APIs with Python (FastAPI) and integrated frontend components. Gained full lifecycle experience working on web and mobile features at an early-stage startup.",
+  },
+]
 ---
-<ol>
-  {EXPERIENCE.map(experience => (
-    <li>
-      <ExperienceItem {...experience} />
-    </li>
-  ))}
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
 </ol>
