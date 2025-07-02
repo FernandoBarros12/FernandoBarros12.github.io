@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 export default defineConfig({
   integrations: [tailwind(), robotsTxt()],
   site: "https://fernandobarros12.github.io",
+  trailingSlash: 'always',
   vite: {
     resolve: {
       alias: {
