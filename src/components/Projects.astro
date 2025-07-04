@@ -4,6 +4,8 @@ import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import Postgresql from "./icons/Postgresql.astro"
 import Python from "./icons/Python.astro"
+import ToolsIcon from "./icons/ToolsIcon.astro"
+import FastAPI from "./icons/FastApi.astro"
 
 const TAGS = {
   PYTHON: {
@@ -16,8 +18,24 @@ const TAGS = {
     class: "bg-[#336791] text-white",
     icon: Postgresql,
   },
+  FASTAPI: {
+    name: "FastAPI",
+    class: "bg-[#336791] text-white",
+    icon: FastAPI,
+  },
 }
 const PROJECTS = [
+  {
+    title: "Ecuadorian recipes blog",
+    description:
+      "Backend API to manage and share Ecuadorian recipes. Built with FastAPI, PostgreSQL, and Docker. Supports JWT authentication for admin posting and user comments. Ready for a future frontend app.",
+    link: "https://www.google.com",
+    github: "https://github.com/FernandoBarros12/ecuadorian-recipes-blog",
+    image: "/projects/generic-ecuadorian-recipes.jpg",
+    tags: [TAGS.FASTAPI, TAGS.POSTGRESQL],
+    isWip: true,
+    hidden: false,
+  },
   {
     title: "Authentication & Resource Management API",
     description:
@@ -26,13 +44,17 @@ const PROJECTS = [
     github: "https://github.com/FernandoBarros12",
     image: "/projects/generic_image.png",
     tags: [TAGS.PYTHON, TAGS.POSTGRESQL],
+    isWip: false,
+    hidden: true,
   },
 ]
 ---
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS
+    .filter((project) => !project.hidden)
+    .map(({ image, title, description, tags, link, github, isWip }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -60,18 +82,26 @@ const PROJECTS = [
 
       <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
       <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
-              Code
-              
+          {isWip ? (
+            <LinkButton>
+              <ToolsIcon class="size-6"/>
+              Building...
             </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
+          ) : (
+            <>
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </>
           )}
         </footer>
     </div>
